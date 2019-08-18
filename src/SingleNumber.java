@@ -44,6 +44,11 @@ public class SingleNumber {
 	public void setIs_true(boolean is_true) {
 		this.is_true = is_true;
 	}
+	
+	//testing
+	//public String toString () {
+		//return this.getValue();
+	//}
 
 	
 	

@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class SudukuTable {
 
@@ -24,12 +25,7 @@ public class SudukuTable {
 	}
 	
 	public void setNumber (int x, int y, int value, boolean writable) {
-		for (x = 0; x <= 9; x++) {
-			for (y = 0; y <= 9; y++) {
-				table[x][y] = new SingleNumber(value, writable);
-			}
-
-		}		
+				table[x][y] = new SingleNumber(value, writable);		
 	}
 	
 	
@@ -49,5 +45,20 @@ public class SudukuTable {
 	public void setLevel(Level level) {
 		this.level = level;
 	}
+
+
+	//for testing only
+	public void  printmyself() {
+		System.out.println( this.level);
+		for (int i = 0; i < table.length; i++) {
+		    for (int j = 0; j < table[i].length; j++) {
+		       System.out.print(table[i][j].getValue() + " ");
+		    }
+		    System.out.println();
+		}
+		//return "/n";
+	}
+	
+	
 
 }
