@@ -23,10 +23,10 @@ public class SudukuTable {
 
 	}
 	
-	public void setNumber (int value, boolean writable) {
-		for (int i = 0; i <= 9; i++) {
-			for (int y = 0; y <= 9; y++) {
-				table[i][y] = new SingleNumber(value, writable);
+	public void setNumber (int x, int y, int value, boolean writable) {
+		for (x = 0; x <= 9; x++) {
+			for (y = 0; y <= 9; y++) {
+				table[x][y] = new SingleNumber(value, writable);
 			}
 
 		}		

@@ -21,15 +21,23 @@ public class FileIO {
 				level = Level.Easy;
 			}
 			else if (selector.charAt(0) == 'M') {
-				level = Level.Midimum;
+				level = Level.Midium;
 			}
 			else if (selector.charAt(0) == 'H') {
 				level = Level.Hard;
 			}
-			System.out.println(level);
+			
+			//this for loop is to read each 9 lines from one block 
 			for (int i =0; i < 9; i++) {
 				line = sc.nextLine();
-				System.out.println(line);
+				//this loop aim to find each single space of the total 81 space of one question block
+				for (int x =0; x<9; x++) {
+					for (int y =0; y< 9; y++) {
+						
+						
+					}
+				}
+				
 				
 				
 			}
