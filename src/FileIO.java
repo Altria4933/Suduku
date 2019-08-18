@@ -14,16 +14,16 @@ public class FileIO {
 	try {
 		Scanner sc = new Scanner(new BufferedReader(new FileReader("question.txt")));
 		while (sc.hasNextLine()) {
-			System.out.println();
 			//default level
 			Level level = Level.Undefined;
-			if (sc.nextLine().charAt(0) == 'E') {
+			String selector = sc.nextLine();
+			if (selector.charAt(0) == 'E') {
 				level = Level.Easy;
 			}
-			else if (sc.nextLine().charAt(0) == 'M') {
+			else if (selector.charAt(0) == 'M') {
 				level = Level.Midimum;
 			}
-			else if (sc.nextLine().charAt(0) == 'H') {
+			else if (selector.charAt(0) == 'H') {
 				level = Level.Hard;
 			}
 			System.out.println(level);

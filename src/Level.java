@@ -1,6 +1,6 @@
 
 public enum Level {
 	
-	Undefined,Easy,Midimum,Hard;
+	Undefined,Easy,Midium,Hard;
 
 }
