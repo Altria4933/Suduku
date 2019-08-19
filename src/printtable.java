@@ -1,8 +1,10 @@
 
 
 public class printtable {
-
-	public static void main(String[] args) {
+    public SudukuTable table=new SudukuTable();
+    
+	public void display()
+	{
 		// TODO Auto-generated method stub
          System.out.println("---------------------------------------------------------------");
          System.out.printf("  ");
@@ -29,9 +31,29 @@ public class printtable {
         		 {
         			 System.out.printf("%d",a/2+1);
         			 System.out.printf(" |");
-        			 for(int index=0;index<3;++index)
+        			 int number=0;
+        			 while(number<9)
         			 {
-        				 System.out.printf("|  %d  |  %d  |  %d  |",index,index,index);
+        				 int value=table.getTable()[a/2][number].getValue();
+        				 boolean writeable=table.getTable()[a/2][number].isWriteable();
+        				 boolean isTrue=table.getTable()[a/2][number].isIs_true();
+        				 if(writeable==true&&value!=0&&isTrue==true)
+        				 {
+        					 System.out.printf("|  %d  ",value);
+        				 }
+        				 else if(writeable==true&&value!=0&&isTrue==false)
+        				 {
+        					 System.out.printf("| \033[31m %d",value);
+        				 }
+        				 else if(writeable==false&&value!=0)
+        				 {
+        					 System.out.printf("| \033[37m %d",value);
+        				 }
+        				 else if(number==2||number==5||number==8)
+        				 {
+        					 System.out.printf("|");
+        				 }
+        				 ++number;
         			 }
         			 System.out.printf("|");
         			 System.out.printf("\n");

@@ -50,9 +50,9 @@ public class FileIO {
 		}
 		
 		//test block
-		for (int i =0; i < questionarray.size(); i++) {
-			questionarray.get(i).printmyself();
-		}
+		//for (int i =0; i < questionarray.size(); i++) {
+			//questionarray.get(i).printmyself();
+		//}
 		
 		
 		
