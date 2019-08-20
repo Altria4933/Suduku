@@ -41,19 +41,24 @@ public class printtable {
         				 int value=table.getTable()[a/2][number].getValue();
         				 boolean writeable=table.getTable()[a/2][number].isWriteable();
         				 boolean isTrue=table.getTable()[a/2][number].isIs_true();
+        				
         				 if(writeable==true&&value!=0&&isTrue==true)
         				 {
         					 System.out.printf("|  %d  ",value);
         				 }
         				 else if(writeable==true&&value!=0&&isTrue==false)
         				 {
-        					 System.out.printf("| \033[31m %d",value);
+        					 System.out.printf("| \033[31m %s \033[0m ",value);
         				 }
         				 else if(writeable==false&&value!=0)
         				 {
-        					 System.out.printf("| \033[37m %d",value);
+        					 System.out.printf("| \033[37m %s \033[0m ",value);
         				 }
-        				 else if(number==2||number==5||number==8)
+        				 else
+        				 {
+        					 System.out.printf("|  %s  "," ");
+        				 }
+        				 if(number==2||number==5||number==8)
         				 {
         					 System.out.printf("|");
         				 }
