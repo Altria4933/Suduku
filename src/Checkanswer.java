@@ -10,6 +10,10 @@ public class Checkanswer {
     			   {
     				   userinput.getTable()[x][y].setIs_true(true);
     			   }
+    			   else
+    			   {
+    				   userinput.getTable()[x][y].setIs_true(false);
+    			   }
     		   }
     	   }
        }
