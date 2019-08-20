@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class FileIO {
 	public static String line;
-	//static ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
+	static ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
 	
 	
 	public static void ReadList () {
-		ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
+		//ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
 		
 		
 	try {
@@ -62,6 +62,10 @@ public class FileIO {
 	 
 	}
 	
+	public static SudukuTable getList (int i) {
+		return questionarray.get(i) ;
+	}
+	
 	
 	
 	//testing only
@@ -73,5 +77,7 @@ public class FileIO {
 		//System.out.println();
 		
 	}
+
+
 
 }

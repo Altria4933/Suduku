@@ -3,6 +3,10 @@
 public class printtable {
     public SudukuTable table=new SudukuTable();
     
+    public void updateTable (SudukuTable table) {
+    	this.table = table;
+    }
+    
 	public void display()
 	{
 		// TODO Auto-generated method stub
