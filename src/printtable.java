@@ -1,5 +1,3 @@
-
-
 public class printtable {
     public SudukuTable table=new SudukuTable();
     
@@ -33,7 +31,7 @@ public class printtable {
         	 }
         	 else if(a%2!=0)
         		 {
-        			 System.out.printf("%d",a/2+1);
+        			 System.out.printf("%c",a/2+'A');
         			 System.out.printf(" |");
         			 int number=0;
         			 while(number<9)
@@ -44,15 +42,15 @@ public class printtable {
         				
         				 if(writeable==true&&value!=0&&isTrue==true)
         				 {
-        					 System.out.printf("|  %d  ",value);
+        					 System.out.printf("| \033[32m %d \033[0m ",value);
         				 }
         				 else if(writeable==true&&value!=0&&isTrue==false)
         				 {
-        					 System.out.printf("| \033[31m %s \033[0m ",value);
+        					 System.out.printf("|  %d  ",value);
         				 }
         				 else if(writeable==false&&value!=0)
         				 {
-        					 System.out.printf("| \033[37m %s \033[0m ",value);
+        					 System.out.printf("| \033[37m %d \033[0m ",value);
         				 }
         				 else
         				 {
