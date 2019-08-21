@@ -1,10 +1,12 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileIO {
 	public static String line;
+	static File input;
 	static ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
 	
 	
@@ -13,7 +15,7 @@ public class FileIO {
 		
 		
 	try {
-		Scanner sc = new Scanner(new BufferedReader(new FileReader("question.txt")));
+		Scanner sc = new Scanner(new BufferedReader(new FileReader(input)));
 		while (sc.hasNextLine()) {
 			//default level
 			SudukuTable newTable = new SudukuTable() ;
@@ -32,6 +34,7 @@ public class FileIO {
 			//this for loop is to read each 9 lines from one block 
 			for (int x =0; x < 9; x++) {
 				line = sc.nextLine();
+				System.out.println(line);
 				//int value = 1;
 				//this loop aim to find each single space of the total 81 space of one question block
 					for (int y =0; y< 9; y++) {
@@ -57,26 +60,29 @@ public class FileIO {
 		
 		
 	} catch (Exception e) {
-		System.out.println(e);
+	 e.printStackTrace();
 	}
 	 
 	}
 	
-	public static SudukuTable getList (int i) {
+    public static SudukuTable getList (int i) {
 		return questionarray.get(i) ;
 	}
+    
+    public void setFile (File input) {
+    	this.input = input;
+    }
 	
 	
 	
 	//testing only
 	
-	public static void main (String args[]) {
-		ReadList();
+		//ReadList();
 		//questionarray.get(0);
 		
 		//System.out.println();
 		
-	}
+	
 
 
 
