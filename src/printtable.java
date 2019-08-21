@@ -43,18 +43,22 @@ public class printtable {
         				 if(writeable==true&&value!=0&&isTrue==true)
         				 {
         					 System.out.printf("| \033[32m %d \033[0m ",value);
+        					 //System.out.print(writeable);
         				 }
         				 else if(writeable==true&&value!=0&&isTrue==false)
         				 {
         					 System.out.printf("| \033[31m %d \033[0m ",value);
+        					 //System.out.print(writeable);
         				 }
         				 else if(writeable==false&&value!=0)
         				 {
         					 System.out.printf("|  %d  ",value);
+        					 //System.out.print(writeable);
         				 }
         				 else
         				 {
         					 System.out.printf("|  %s  "," ");
+        					 //System.out.print(writeable);
         				 }
         				 if(number==2||number==5||number==8)
         				 {

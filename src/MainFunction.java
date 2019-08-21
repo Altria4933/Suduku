@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,44 +8,201 @@ public class MainFunction {
 
 	public ArrayList<SudukuTable> tableList;
 	public SudukuTable singleTable;
-	//public SudukuTable answerTable;
+	public SudukuTable answerTable;
 	public printtable display;
 	public Random random;
+	public Token token;
 	public int rand;
 	Scanner scan = new Scanner(System.in);
 	boolean gameOn = true;
+	boolean gameClear = false;
+	boolean is_easymode = false;
 	FileIO mainIO;
-	//FileIO answerIO;
+	FileIO answerIO;
 	File question = new File("question.txt");
-	//File answer = new File("answer.txt");
+	File answer = new File("answer.txt");
 
 	public MainFunction() {
 		tableList = new ArrayList<SudukuTable>();
 		singleTable = new SudukuTable();
-		//answerTable = new SudukuTable();
+		// answerTable = new SudukuTable();
 		display = new printtable();
 		mainIO = new FileIO();
-		//answerIO = new FileIO();
+		// answerIO = new FileIO();
 		mainIO.setFile(question);
-		//answerIO.setFile(answer);
-//load file to arraylist to both question and answer io class
+		// answerIO.setFile(answer);
+		// load file to arraylist to both question and answer io class
 		mainIO.ReadList();
-		//answerIO.ReadList();
+		// answerIO.ReadList();
 
 		greeting();
 		// insert user level here
 		levelPicker();
+		while (gameOn) {
+			display.updateTable(singleTable);
+			display.display();
+			if (!CheckClear()) {
+				// testing line, delete later
+				System.out.println(rand);
+				scan.nextLine();
 
-		display.updateTable(singleTable);
-		display.display();
-		System.out.println(rand);
+				System.out.println("Please choose an operation, enter 'Help' for more info: ");
+				String operator = scan.nextLine();
+				String[] input = operator.trim().split(" ");
+				switch (input[0].toLowerCase()) {
+				case "help": {
+					System.out.println(Help.in_game());
+					break;
+				}
+				case "exit": {
+					// enter save user record method here
+					gameOn = false;
+					break;
+				}
+
+				case "set": {
+					setNumber(input);
+					break;
+
+				}
+
+				case "remove": {
+					removeNumber(input);
+					break;
+
+				}
+
+				case "clear": {
+					System.out.println("clear");
+					break;
+
+				}
+
+				case "check": {
+					Checkanswer(singleTable, rand);
+					break;
+				}
+
+				case "easymode": {
+					easymode(input[1]);
+				}
+
+				default: {
+					System.out.println("Invalid command, please try again! enter 'Help' for more info");
+					operator = scan.nextLine();
+					break;
+				}
+				}
+			} else {
+				cleared();
+			}
+		}
+	}
+
+	public void setNumber(String[] input) {
+		token = new Token();
+		int value = 0;
+		boolean rightValue = false;
+		char a = Character.toUpperCase(input[1].charAt(0));
+		if ((Character.toString(a).matches("[A-I?]"))) {
+			int x = token.getPointer(a);
+			int y = Character.getNumericValue(input[1].charAt(1)) - 1;
+			if (x >= 0 && x <= 8 && y >= 0 && y <= 8) {
+				if (singleTable.getTable()[x][y].isWriteable() == true) {
+					System.out.println("Please enter the value you want to set");
+					if (scan.hasNextInt()) {
+						value = scan.nextInt();
+						//scan.nextLine();
+					}
+					if (value >= 1 && value <= 9) {
+						rightValue = true;
+
+					} else {
+						System.out.println("The value should between 1-9");
+					}
+					if (rightValue) {
+						singleTable.getTable()[x][y].setValue(value);
+					}
+				} else {
+					System.out.println("You can't write in this block, please try again! ");
+				}
+			} else {
+				System.out.println("The pointer index should be between A-I and 1-9, Please check your input!");
+			}
+
+		} else {
+			System.out.println("Invalid pointer at " + input[1] + " Please check your input!");
+		}
+
+		if (is_easymode == true) {
+			Checkanswer(singleTable, rand);
+		}
+	}
+
+	public void removeNumber(String[] input) {
+		token = new Token();
+		int value = 0;
+		boolean rightValue = false;
+		char a = Character.toUpperCase(input[1].charAt(0));
+		if ((Character.toString(a).matches("[A-I?]"))) {
+			int x = token.getPointer(a);
+			int y = Character.getNumericValue(input[1].charAt(1)) - 1;
+			if (x >= 0 && x <= 8 && y >= 0 && y <= 8) {
+				if (singleTable.getTable()[x][y].isWriteable() == true) {
+					singleTable.getTable()[x][y].setValue(0);
+				} else {
+					System.out.println("You can't clear in this block, please try again! ");
+				}
+			} else {
+				System.out.println("The pointer index should be between A-I and 1-9, Please check your input!");
+			}
+
+		} else {
+			System.out.println("Invalid pointer at " + input[1] + "Please check your input!");
+		}
+		if (is_easymode == true) {
+			Checkanswer(singleTable, rand);
+		}
+	}
+
+	public void clearTable() {
 
 	}
 
-	public void Checkanswer(SudukuTable userinput, SudukuTable answerlist) {
+	public boolean CheckClear() {
+		return false;
+
+	}
+
+	public void cleared() {
+
+	}
+
+	public void easymode(String in) {
+		if (in.equalsIgnoreCase("on")) {
+			is_easymode = true;
+			System.out.println("Easymode turned on, the answer will be checked once been entered.");
+		} else if (in.equalsIgnoreCase("off")) {
+			is_easymode = false;
+			System.out.println("Easymode turned off, you'll need to enter 'check' to check your answer");
+		} else {
+			System.out.println("Unknown command, please try again! enter 'Help' for more info");
+		}
+
+	}
+
+	public void Checkanswer(SudukuTable userinput, int rand) {
+		answerTable = new SudukuTable();
+		answerIO = new FileIO();
+		answerIO.setFile(answer);
+		answerIO.ReadList();
+		// getList (rand) will use the same index for the question list to find the
+		// answer list
+		answerTable = answerIO.getList(rand);
+
 		for (int x = 0; x < 9; ++x) {
 			for (int y = 0; y < 9; ++y) {
-				if (userinput.getTable()[x][y].getValue() == answerlist.getTable()[x][y].getValue()) {
+				if (userinput.getTable()[x][y].getValue() == answerTable.getTable()[x][y].getValue()) {
 					userinput.getTable()[x][y].setIs_true(true);
 				} else {
 					userinput.getTable()[x][y].setIs_true(false);
@@ -58,12 +216,13 @@ public class MainFunction {
 	}
 
 	public void levelPicker() {
-		
+
 		boolean rightInput = false;
 		int picker = 0;
 
 		while (!rightInput) {
-			System.out.println("Please choose your game level!" + "\nEasy, Midium or Hard \nenter 'Help' for more info.");
+			System.out
+					.println("Please choose your game level!" + "\nEasy, Midium or Hard \nenter 'Help' for more info.");
 			String choise = scan.nextLine();
 			switch (choise.toLowerCase()) {
 			case "easy": {
@@ -110,7 +269,7 @@ public class MainFunction {
 		// and get a question using the number generated
 		switch (i) {
 		case 1: {
-			
+
 			rand = random.nextInt(6);
 			System.out.println(rand);
 			break;

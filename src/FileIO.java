@@ -37,6 +37,7 @@ public class FileIO {
 					for (int y = 0; y < 9; y++) {
 						int value = Character.getNumericValue(line.charAt(y));
 						// System.out.println(value);
+						
 						if (value == 0) {
 							newTable.setNumber(x, y, value, true);
 						} else {
@@ -59,7 +60,7 @@ public class FileIO {
 
 	}
 
-	public static SudukuTable getList(int i) {
+	public SudukuTable getList(int i) {
 		return questionarray.get(i);
 	}
 

@@ -14,9 +14,9 @@ public class SingleNumber {
 		
 	}
 	
-	public SingleNumber(int value, boolean weiteable) {
+	public SingleNumber(int value, boolean weiterable) {
 		this.setValue(value);
-		this.setWriteable(writeable);
+		this.setWriteable(weiterable);
 		this.is_true = true;
 		
 	}
@@ -25,8 +25,9 @@ public class SingleNumber {
 		return this.value;
 	}
 	
-	public void setValue(int value) {
-		this.value = value;
+	public void setValue(int valuee) {
+		//this.value = valuee;
+		value = valuee;
 	}
 
 	public boolean isWriteable() {
