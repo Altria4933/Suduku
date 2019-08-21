@@ -46,11 +46,11 @@ public class printtable {
         				 }
         				 else if(writeable==true&&value!=0&&isTrue==false)
         				 {
-        					 System.out.printf("|  %d  ",value);
+        					 System.out.printf("| \033[31m %d \033[0m ",value);
         				 }
         				 else if(writeable==false&&value!=0)
         				 {
-        					 System.out.printf("| \033[37m %d \033[0m ",value);
+        					 System.out.printf("|  %d  ",value);
         				 }
         				 else
         				 {
