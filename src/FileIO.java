@@ -9,7 +9,7 @@ public class FileIO {
 	static File input;
 	static ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
 
-	public static void ReadList() {
+	public void ReadList() {
 		// ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
 
 		try {
