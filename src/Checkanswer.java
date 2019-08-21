@@ -1,5 +1,4 @@
-
-public class Checkanswer {
+public class CheckAnswer {
        public void Checkanswer(SudukuTable userinput,SudukuTable answerlist)
        {
     	   for(int x=0;x<9;++x)

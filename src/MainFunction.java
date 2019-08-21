@@ -24,7 +24,7 @@ public class MainFunction {
 		display = new printtable();
 		FileIO.ReadList();
 		
-		singleTable = FileIO.getList(0);
+		singleTable = FileIO.getList(9);
 		display.updateTable(singleTable);
 		display.display();
 	
