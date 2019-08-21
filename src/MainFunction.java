@@ -7,16 +7,16 @@ public class MainFunction {
 
 	public ArrayList<SudukuTable> tableList;
 	public SudukuTable singleTable;
-	public SudukuTable answerTable;
+	//public SudukuTable answerTable;
 	public printtable display;
 	public Random random;
 	public int rand;
 	Scanner scan = new Scanner(System.in);
 	boolean gameOn = true;
 	FileIO mainIO;
-	FileIO answerIO;
+	//FileIO answerIO;
 	File question = new File("question.txt");
-	File answer = new File("answer.txt");
+	//File answer = new File("answer.txt");
 
 	public MainFunction() {
 		tableList = new ArrayList<SudukuTable>();
@@ -90,7 +90,7 @@ public class MainFunction {
 			}
 
 			default:
-				System.out.println("Invalid input, please try again!");
+				System.out.println("Invalid input, please try again!/n");
 				break;
 
 			}
