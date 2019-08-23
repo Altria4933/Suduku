@@ -230,13 +230,17 @@ public class MainFunction {
 		// getList (rand) will use the same index for the question list to find the
 		// answer list
 		answerTable = answerIO.getList(rand);
+		
 
 		for (int x = 0; x < 9; ++x) {
 			for (int y = 0; y < 9; ++y) {
+				System.out.println(answerTable.getTable()[x][y].getValue());
 				if (userinput.getTable()[x][y].getValue() == answerTable.getTable()[x][y].getValue()) {
 					userinput.getTable()[x][y].setIs_true(true);
+					System.out.println(userinput.getTable()[x][y].isIs_true());
 				} else {
 					userinput.getTable()[x][y].setIs_true(false);
+					System.out.println(userinput.getTable()[x][y].isIs_true());
 				}
 			}
 		}

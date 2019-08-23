@@ -7,13 +7,15 @@ import java.util.Scanner;
 public class FileIO {
 	public static String line;
 	static File input;
-	static ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
+	ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
 
 	public void ReadList() {
 		// ArrayList<SudukuTable> questionarray = new ArrayList<SudukuTable>();
 
 		try {
-			Scanner sc = new Scanner(new BufferedReader(new FileReader(input)));
+			FileReader fr = new FileReader(input);
+			BufferedReader br = new BufferedReader(fr);
+			Scanner sc = new Scanner(br);
 			while (sc.hasNextLine()) {
 				// default level
 				SudukuTable newTable = new SudukuTable();
@@ -47,7 +49,9 @@ public class FileIO {
 					}
 				}
 				questionarray.add(newTable);
+				
 			}
+			fr.close(); br.close();
 
 			// test block
 			// for (int i =0; i < questionarray.size(); i++) {
@@ -58,6 +62,11 @@ public class FileIO {
 			e.printStackTrace();
 		}
 
+	}
+
+	private Object fr(File input2) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public SudukuTable getList(int i) {
