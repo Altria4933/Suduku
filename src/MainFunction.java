@@ -44,10 +44,12 @@ public class MainFunction {
 			if (!CheckClear()) {
 				// testing line, delete later
 				System.out.println(rand);
-				scan.nextLine();
+				//scan.nextLine();
 
 				System.out.println("Please choose an operation, enter 'Help' for more info: ");
-				String operator = scan.nextLine();
+				
+				String operator = "";
+				operator = scan.nextLine();
 				String[] input = operator.trim().split(" ");
 				switch (input[0].toLowerCase()) {
 				case "help": {
@@ -73,7 +75,7 @@ public class MainFunction {
 				}
 
 				case "clear": {
-					System.out.println("clear");
+					clearTable();
 					break;
 
 				}
@@ -112,10 +114,11 @@ public class MainFunction {
 					System.out.println("Please enter the value you want to set");
 					if (scan.hasNextInt()) {
 						value = scan.nextInt();
-						//scan.nextLine();
+						
 					}
 					if (value >= 1 && value <= 9) {
 						rightValue = true;
+						scan.nextLine();
 
 					} else {
 						System.out.println("The value should between 1-9");
@@ -166,6 +169,34 @@ public class MainFunction {
 	}
 
 	public void clearTable() {
+
+		boolean rightinput = false;
+		while (!rightinput) {
+			System.out.println("By doing this, you'll clear everything you've done in this table. sure?\n (YES/NO)");
+			String choise = scan.nextLine();
+			switch (choise.toLowerCase()) {
+			case "yes": {
+				for (int x = 0; x < 9; x++) {
+					for (int y = 0; y < 9; y++) {
+						if (singleTable.getTable()[x][y].isWriteable() == true) {
+							singleTable.getTable()[x][y].setValue(0);
+						}
+					}
+				}
+
+				rightinput = true;
+				break;
+			}
+			case "no": {
+				rightinput = true;
+				break;
+			}
+			default: {
+				System.out.println("Invalid input, please try again!");
+				break;
+			}
+			}
+		}
 
 	}
 
