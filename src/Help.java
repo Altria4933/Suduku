@@ -15,7 +15,7 @@ public class Help {
 				+ "and you'll be promoted to enter the value you want to set after that. \n"
 				+ "\nCHECK-- Will check the anser you've input is right. wrong answer will be shown in red. \n"
 				+ "\nREMOVE-- Will remove one block with postition input. \n "
-				+ "\nSame as the set command, 'Remove A1' will remove the value of A1 block.\n"
+				+ "Same as the set command, 'Remove A1' will remove the value of A1 block(Make it blank).\n"
 				+ "\nEASYMODE-- Will automaticly check the correctness of the value entered after each operation. \n"
 				+ "Note if easymode is off, you have to manualy enter 'Check' to check answer and EasyMode is by defalut off.\n"
 				+ "----------------------------------------\n";
