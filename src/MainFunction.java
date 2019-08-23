@@ -43,7 +43,7 @@ public class MainFunction {
 			display.display();
 			if (!CheckClear()) {
 				// testing line, delete later
-				System.out.println(rand);
+				//System.out.println(rand);
 				//scan.nextLine();
 
 				System.out.println("Please choose an operation, enter 'Help' for more info: ");
@@ -234,13 +234,13 @@ public class MainFunction {
 
 		for (int x = 0; x < 9; ++x) {
 			for (int y = 0; y < 9; ++y) {
-				System.out.println(answerTable.getTable()[x][y].getValue());
+				//System.out.println(answerTable.getTable()[x][y].getValue());
 				if (userinput.getTable()[x][y].getValue() == answerTable.getTable()[x][y].getValue()) {
 					userinput.getTable()[x][y].setIs_true(true);
-					System.out.println(userinput.getTable()[x][y].isIs_true());
+					//System.out.println(userinput.getTable()[x][y].isIs_true());
 				} else {
 					userinput.getTable()[x][y].setIs_true(false);
-					System.out.println(userinput.getTable()[x][y].isIs_true());
+					//System.out.println(userinput.getTable()[x][y].isIs_true());
 				}
 			}
 		}
@@ -306,17 +306,17 @@ public class MainFunction {
 		case 1: {
 
 			rand = random.nextInt(6);
-			System.out.println(rand);
+			//System.out.println(rand);
 			break;
 		}
 		case 2: {
 			rand = (random.nextInt(12 - 6) + 6);
-			System.out.println(rand);
+			//System.out.println(rand);
 			break;
 		}
 		case 3: {
 			rand = (random.nextInt(18 - 12) + 12);
-			System.out.println(rand);
+			//System.out.println(rand);
 			break;
 
 		}
